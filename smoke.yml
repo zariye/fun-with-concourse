@@ -6,8 +6,8 @@ image_resource:
   source: {repository: node}
 
 inputs:
-  - name: resource-app
-    path: resource-app/app
+  - name:fun-with-concourse
+    path: fun-with-concourse/app
 
 run:
-  path: resource-app/app/smoke.sh
+  path: fun-with-concourse/app/smoke.sh
