@@ -13,7 +13,7 @@ npm install -g forever
 forever start app.js
 
 echo 'ip addresses'
-
+MY_ADDRESS=`hostname --ip-address`
 sleep 5
 
-curl http://10.254.0.14:3000
+curl http://${MY_ADDRESS}:3000
