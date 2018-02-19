@@ -7,7 +7,6 @@ image_resource:
 
 inputs:
   - name: fun-with-concourse
-    path: fun-with-concourse/app
 
 run:
   path: fun-with-concourse/app/smoke.sh
