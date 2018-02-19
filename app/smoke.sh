@@ -14,4 +14,6 @@ forever start app.js
 
 echo 'ip addresses'
 
+sleep 5
+
 curl http://10.254.0.14:3000
