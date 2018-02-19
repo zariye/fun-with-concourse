@@ -1,4 +1,6 @@
 node_modules
 keys
+.idea
+credentials.yml
 
 package-lock.json
