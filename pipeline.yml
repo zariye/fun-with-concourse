@@ -14,10 +14,16 @@ resources:
     aws_secret_access_key: ((aws_secret_access_key))
 
 jobs:
-- name: smoke
+- name: publish
   plan:
   - get: fun-with-concourse
   - put: fun-image
-    params: {build: fun-with-concours/app}
+    params: {build: fun-with-concourse/app}
+
+- name: smoke-test
+  plan:
+  - get: fun-image
+    passed: [publish]
   - task: say-hello
+    image: fun-image
     file: fun-with-concourse/smoke.yml

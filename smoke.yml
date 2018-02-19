@@ -1,12 +1,8 @@
 ---
 platform: linux
 
-image_resource:
-  type: docker-image
-  source: {repository: node}
-
 inputs:
-  - name: fun-with-concourse
+  - name: fun-image
 
 run:
-  path: fun-with-concourse/app/smoke.sh
+  path: bin/app/smoke.sh
