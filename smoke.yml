@@ -6,7 +6,7 @@ image_resource:
   source: {repository: node}
 
 inputs:
-  - name:fun-with-concourse
+  - name: fun-with-concourse
     path: fun-with-concourse/app
 
 run:
