@@ -1,5 +1,5 @@
 ---
-ressources:
+resources:
 - name: fun-with-concourse
   type: git
   source:
