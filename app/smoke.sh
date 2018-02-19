@@ -4,6 +4,8 @@ set -e
 
 ls
 
+cd /bin/app
+
 npm install
 npm build
 npm install -g forever
