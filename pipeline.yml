@@ -24,6 +24,8 @@ jobs:
   plan:
   - get: fun-image
     passed: [publish]
+  - get: fun-with-concourse
+    passed: [publish]
   - task: say-hello
     image: fun-image
     file: fun-with-concourse/smoke.yml

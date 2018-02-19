@@ -5,4 +5,4 @@ inputs:
   - name: fun-image
 
 run:
-  path: bin/app/smoke.sh
+  path: /bin/app/smoke.sh
