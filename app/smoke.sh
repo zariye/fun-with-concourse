@@ -3,7 +3,6 @@
 set -e
 
 ls
-cd fun-with-concourse/app
 
 npm install
 npm build
