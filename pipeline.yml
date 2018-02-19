@@ -1,0 +1,15 @@
+---
+ressources:
+- name: fun-with-concourse
+  type: git
+  source:
+    uri: https://github.com/zariye/fun-with-concourse.git
+    branch: master
+
+jobs:
+- name: smoke
+  plan:
+  - get: fun-with-concourse
+    trigger: true
+  - task: say-hello
+    file: fun-with-concourse/smoke.yml

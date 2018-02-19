@@ -1,0 +1,13 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source: {repository: node}
+
+inputs:
+  - name: resource-app
+    path: resource-app/app
+
+run:
+  path: resource-app/app/smoke.sh
