@@ -51,4 +51,4 @@ jobs:
     passed: [smoke-test]
   - put: kubernetes-deployment
     params:
-      kubectl: run deploy-image --image=((ecr_repo)):latest
+      kubectl: run deploy-image1 --image=((ecr_repo)):latest --port=3000
