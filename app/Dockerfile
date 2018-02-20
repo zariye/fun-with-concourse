@@ -1,6 +1,10 @@
 FROM node
 
-ADD . /bin/app/
+COPY package.json ./
 
-ENTRYPOINT ['/bin/app']
+RUN npm install
+
+COPY . .
+
 EXPOSE 3000
+CMD ["npm", "start"]
