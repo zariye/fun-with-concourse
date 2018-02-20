@@ -1,5 +1,7 @@
 FROM node
 
+WORKDIR /bin/app
+
 COPY package.json ./
 
 RUN npm install
