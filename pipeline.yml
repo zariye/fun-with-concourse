@@ -1,10 +1,25 @@
 ---
+resource_types:
+- name: kubernetes
+  type: docker-image
+  source:
+    repository: zlabjp/kubernetes-resource
+    tag: "1.9"
+
 resources:
+- name: kubernetes-deployment
+  type: kubernetes
+  source:
+    server: ((aws_k8s_host))
+    token: ((k8s_token))
+    certificate_authority: ((k8s-cert))
+
 - name: fun-with-concourse
   type: git
   source:
     uri: https://github.com/zariye/fun-with-concourse.git
     branch: master
+
 - name: fun-image
   type: docker-image
   source:
@@ -34,8 +49,6 @@ jobs:
   plan:
   - get: fun-image
     passed: [smoke-test]
-  - get: fun-with-concourse
-    passed: [smoke-test]
-  - task: deploy-hello-world
-    image: fun-image
-    file: fun-with-concourse/deploy.yml
+  - put: kubernetes-deployment
+    params:
+      kubectl: run deploy-image --image=((ecr_repo)):latest
