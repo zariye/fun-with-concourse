@@ -1,0 +1,14 @@
+---
+platform: linux
+
+inputs:
+  - name: fun-image
+
+run:
+  path: bash
+  args:
+  - -c
+  - |
+    set -ex
+
+    kubectl get pods

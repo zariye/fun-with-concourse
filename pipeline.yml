@@ -29,3 +29,13 @@ jobs:
   - task: say-hello
     image: fun-image
     file: fun-with-concourse/smoke.yml
+
+- name: deploy
+  plan:
+  - get: fun-image
+    passed: [smoke-test]
+  - get: fun-with-concourse
+    passed: [smoke-test]
+  - task: deploy-hello-world
+    image: fun-image
+    file: fun-with-concourse/deploy.yml
