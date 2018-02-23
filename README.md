@@ -17,6 +17,9 @@ It might not follow all security regulations, please use it on your own risk.
 
 `aws s3api put-bucket-versioning --bucket kops-k8s-de-state-store --versioning-configuration Status=Enabled`
 
+#### access the dashboard ui at any time
+run `kubectl proxy` and call ${URL_AND_PORT}/ui in the browser
+
 #### creating cluster with public topology
 
 `export NAME=myfirstprivatecluster.kops-k8s.de`
@@ -40,14 +43,13 @@ It might not follow all security regulations, please use it on your own risk.
 kubectl create serviceaccount --namespace kube-system tiller
 kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
 kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
-helm install stable/concourse`
+helm install stable/concourse``
 
 #### access concourse locally
 `export POD_NAME=$(kubectl get pods --namespace default -l "app=knobby-tiger-web" -o jsonpath="{.items[0].metadata.name}")
 kubectl port-forward --namespace default $POD_NAME 8080:8080`
 
 #### access k8s dashboard locally
-
 ``kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
 kubectl create -f dashboard-admin.yaml //you can get this yaml file in fun-with-concourse repo
 kubectl proxy``
