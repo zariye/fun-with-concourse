@@ -1,15 +1,15 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: fun-ingress
+  name: concourse-ingress
   annotations:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-  - host: abc.kops-k8s.de
+  - host: ci.kops-k8s.de
     http:
       paths:
       - path: /
         backend:
-          serviceName: deploy-image1
-          servicePort: 3000
+          serviceName: brazen-abalone-web
+          servicePort: 8080
