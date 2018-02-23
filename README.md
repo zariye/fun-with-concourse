@@ -63,4 +63,13 @@ kubectl create -f deployer-role-binding.yaml``
 #### after deployment, you can access the app by port forwarding like a superstar:
 `kubectl port-forward pod-name 3000:3000`
 
+
+#### install nginx ingress to acess services from outside
+`helm install --name nginx-ingress1 stable/nginx-ingress --set rbac.create=true`
+
+wait for the pods and services to be ready and create the ingress for the service with the following command:
+
+`kubectl apply -f fun-ingress.yaml`
+
+wait again for the route to be avaiable and reach it.  
 HURRAAYYYYYYYYYYY!
