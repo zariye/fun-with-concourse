@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 app.get('/', function (req, res) {
+  console.log('* ****** ******** ** * Logging output to check everythign is working.');
   res.send('Hello World!');
 });
 app.listen(3000, function () {
